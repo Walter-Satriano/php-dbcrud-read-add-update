@@ -2,12 +2,15 @@ $(document).ready(function() {
 
   getBevande();
 
+  $("#add_button").click(addBevanda);
+
+
+
 
   //funzione per pulire il contenitore ad ogni chiamata getRooms
   function reset() {
     $(".bevande_container").html("");
   }
-
 
   //funzione per ottenere i dati delle bevande
   function getBevande() {
@@ -25,7 +28,7 @@ $(document).ready(function() {
         console.log(data);
       },
       error: function () {
-        alert("Errore in getRooms");
+        alert("Errore in getBevande");
       }
     });
   }
@@ -57,6 +60,44 @@ $(document).ready(function() {
 
       $(".bevande_container").append(html);
     }
+  }
+
+  //funzione per aggiungere bevande
+  function addBevanda() {
+
+    var addBtn = $(this);
+
+    var nomeBev = $(".nome_bev").val();
+    var marcaBev = $(".marca_bev").val();
+    var prezzoBev = $(".prezzo_bev").val();
+    var scadenzaBev = $(".scad_bev").val();
+
+
+    $(".nome_bev").val("");
+    $(".marca_bev").val("");
+    $(".prezzo_bev").val("");
+    $(".scad_bev").val("");
+
+    $.ajax({
+
+      url: "api-bevande-add.php",
+      method: "GET",
+      data: {
+        nome_bevanda: nomeBev,
+        marca: marcaBev,
+        prezzo: prezzoBev,
+        data_di_scadenza: scadenzaBev
+      },
+
+      success: function(data) {
+
+        getBevande();
+        console.log("bevanda: " + nomeBev + "marca: " + marcaBev + "prezzo: " + prezzoBev + "data scadenza: " + scadenzaBev);
+      },
+      error: function() {
+        alert("Errore in addBevande");
+      }
+    });
   }
 
 
