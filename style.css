@@ -4,6 +4,26 @@
   box-sizing: border-box;
 }
 
+.title {
+  background-color: darkgreen;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.title h1 {
+  background-color: darkgreen;
+  color: white;
+  padding: 20px 40px;
+}
+
+.add_container {
+  padding: 20px 40px;
+}
+
+.add_container input {
+  margin-right: 15px;
+}
+
 .bevande_container {
   display: flex;
   flex-wrap: wrap;
@@ -15,4 +35,12 @@
   padding: 25px 10px;
   margin: 15px 40px;
   border: 1px solid black;
+}
+
+.bevande_list p {
+  margin: 10px 0;
+}
+
+.bevande_list .delete_btn {
+  margin: 10px 0;
 }
