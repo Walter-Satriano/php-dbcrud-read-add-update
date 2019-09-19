@@ -32,9 +32,17 @@
       <h1>BEVANDE</h1>
     </div>
 
+    <div class="add_container">
+      <input class="nome_bev" type="text" name="" value="" placeholder="Inserisci nome">
+      <input class="marca_bev" type="text" name="" value="" placeholder="Inserisci marca">
+      <input class="prezzo_bev" type="text" name="" value="" placeholder="Inserisci prezzo">
+      <input class="scad_bev" type="text" name="" value="" placeholder="Inserisci scadenza">
+      <button id="add_button" type="button" name="button">AGGIUNGI</button>
+    </div>
+
 
     <div class="bevande_container">
-
+      <!-- script handlebars -->
     </div>
 
 
@@ -42,7 +50,7 @@
       <div class="bevande_list" data-id={{id}}>
         <p>Nome: {{nome_bevanda}}</p>
         <p>Marca: {{marca}}</p>
-        <p>Prezzo: {{prezzo}} €</p>
+        <p>Prezzo: {{prezzo}}</p>
         <p>Data di Scadenza: {{data_di_scadenza}}</p>
         <button class="delete_btn" type="button" name="button">CANCELLA</button>
         <button class="update_btn" type="button" name="button">AGGIORNA</button>
