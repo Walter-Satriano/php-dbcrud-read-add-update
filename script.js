@@ -3,6 +3,7 @@ $(document).ready(function() {
   getBevande();
 
   $("#add_button").click(addBevanda);
+  $(document).on("click", ".bevande_list .delete_btn", deleteBevande)
 
 
 
@@ -98,6 +99,32 @@ $(document).ready(function() {
         alert("Errore in addBevande");
       }
     });
+  }
+
+  //funzione per eliminare le bevande
+  function deleteBevande() {
+
+    var deleteBtn = $(this);
+    var box = deleteBtn.parent();
+    var idBevanda = box.data("id");
+
+    $.ajax({
+
+      url: "api-bevande-delete.php",
+      method: "GET",
+      data: {id: idBevanda},
+
+      success: function(data) {
+
+        getBevande();
+        console.log("dentro delete", data);
+      },
+      error: function(){
+
+        alert("Errore in deleteBevande")
+      }
+    });
+
   }
 
 
